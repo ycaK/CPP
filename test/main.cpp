@@ -10,16 +10,22 @@
 #include "Item.h" // Testing
 //#include "stdafx.h"
 
-Player battle(Player accout);
-Item potion1("Heal Potion", "defense", "heal", 1, 1);
+//TODO: Item makeIt <- Delete input and make better way of adding/changing potions!
 
+Player battle(Player accout);
+Player expCalc(Player account);
+
+Item potion1("Heal Potion", "defense", "heal", 1, 1);
 Item makeIt(Item potion1);
 
 int main(){
-   Player account("Kacy", 1, 1);
-   account.setDamage(75);
-   account.setPlayerHp(550);
-   account = battle(account);
+    Player account("Kacy", 1, 1);
+    account.setDamage(75);
+    account.setPlayerHp(550);
+    while(true)
+   {
+       account = battle(account);
+   }
 }
 
 Item makeIt(Item potion1)
@@ -42,6 +48,16 @@ Item makeIt(Item potion1)
 
 }
 
+Player expCalc(Player account, Mob Karthus)
+{
+    account.setPlayerExp(account.getPlayerExp() + Karthus.getMobDifficulty() * 10);
+    std::cout << "Player gained: " << Karthus.getMobDifficulty() * 10 << " experience!" << std::endl;
+    std::cout << "You have now: " << account.getPlayerExp() << " experience!" << std::endl;
+    system("pause");
+    system("cls");
+    return account;
+}
+
 Player battle(Player accout)
 {
     std::string option;
@@ -61,8 +77,9 @@ Player battle(Player accout)
         {
             system("cls");
             std::cout << "You have successfully escaped!" << std::endl;
-            Karthus.setMobHp(0);
-            Sleep(1000);
+            Sleep(1500);
+            system("cls");
+            return accout;
         }
         else
         {
@@ -89,7 +106,6 @@ Player battle(Player accout)
                         std::cout << " [0] " << potion1.getPotionName() << " x " << potion1.getPotionQuantity() << std::endl;
                         std::cout << std::endl << std::endl << " Select Number: ";
                         std::cin >> selectPot;
-                        //std::cout << potion1.getPotionName() << potion1.getPotionType() << potion1.getPotionEffect() << std::endl; // For Debiging only!
                         if(selectPot == "0"){
                             if(potion1.getPotionQuantity() > 0)
                                 {
@@ -173,12 +189,14 @@ Player battle(Player accout)
     if(accout.getPlayerHp() <= 0){
         system("cls");
         std::cout << "# GAMEOVER #" << std::endl;
-        exit(0);
+        system("cls");
+        return accout;
     }
     else
     {
         system("cls");
         std::cout << "# You have won #" << std::endl;
-        exit(0);
+        accout = expCalc(accout, Karthus);
+        return accout;
     }
 }
