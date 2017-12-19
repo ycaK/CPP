@@ -7,18 +7,21 @@
 class Mob
 {
     public:
-        Mob(std::string, int, int); // name , hp, dmg
+        Mob(std::string, int, int, int); // name , hp, dmg
 
         void setMobName(std::string);
         void setMobHp(int);
         void setMobDmg(int);
+        void setMobDifficulty(int);
 
         std::string getMobName();
         int getMobHp();
         int getMobDmg();
+        int getMobDifficulty();
     private:
         int hp;
         int dmg;
+        int difficulty;
         std::string name;
 };
 

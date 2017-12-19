@@ -45,10 +45,15 @@ Item makeIt(Item potion1)
 Player battle(Player accout)
 {
     std::string option;
-    Mob Karthus("Karthus", 100, 80);
+    srand(time(NULL));
+    int mGroup = (rand() % 2);
+    int mClass = (rand() % 3);
+    int diff = (rand() & 20);
+    std::string mobs[2][3] = {{"Dragon", "Baby Dragon", "Elder Dragon"}, {"Akali", "Garen", "Wukong"}};
+    Mob Karthus(mobs[mGroup][mClass], 25 * diff, 5 * diff, diff);
     do
     {
-        std::cout << "A for attack, R for retreat, I to use item, S for player's stats: ";
+        std::cout << "A for attack, R for retreat, I to use item, S for player's stats, C for monster's stats: ";
         std::cin >> option;
         Sleep(250);
         system("cls");
@@ -70,7 +75,7 @@ Player battle(Player accout)
                 std::cout << Karthus.getMobName() << " attacked you for " << Karthus.getMobDmg() << " damage!" << std::endl;
                 std::cout << "You have now " << accout.getPlayerHp() << " health points" << std::endl;
                 std::cout << Karthus.getMobName() << " have now " << Karthus.getMobHp() << " health points" << std::endl;
-                Sleep(2500);
+                system("pause");
                 system("cls");
             }
             else
@@ -137,15 +142,28 @@ Player battle(Player accout)
                             std::cout << " - DMG: " << accout.getDamage() << std::endl;
                             std::cout << " - LVL: " << accout.getPlayerLvl() << std::endl;
                             std::cout << " - EXP: " << accout.getPlayerExp() << std::endl;
-                            Sleep(5000);
+                            system("pause");
                             system("cls");
                         }
                         else
+                        {
+                            if(option == "C" || option == "c")
+                            {
+                                std::cout << " -- Monsters's stats -- " << std::endl;
+                                std::cout << " - Type: " << Karthus.getMobName() << std::endl;
+                                std::cout << " - HP: " << Karthus.getMobHp() << std::endl;
+                                std::cout << " - DMG: " << Karthus.getMobDmg() << std::endl;
+                                std::cout << " - Difficulty: " << Karthus.getMobDifficulty() << std::endl;
+                                system("pause");
+                                system("cls");
+                            }
+                            else
                             {
                                 std::cout << "#@#ERROR#@# Wrong option #@#ERROR#@#" << std::endl;
                                 Sleep(1000);
                                 system("cls");
                             }
+                        }
                     }
             }
         }
