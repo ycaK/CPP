@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1513847410 source:e:\cpp\test\main.cpp
+	<iostream>
+	<time.h>
+	<string>
+	<stdio.h>
+	<cstdlib>
+	<stdlib.h>
+	<Windows.h>
+	"Player.h"
+	"Mob.h"
+	"Item.h"
+
+1513850309 e:\cpp\test\include\player.h
+	<iostream>
+	<string>
+
+1513787514 e:\cpp\test\include\mob.h
+	<iostream>
+	<string>
+
+1513787514 source:e:\cpp\test\src\mob.cpp
+	"Mob.h"
+	<iostream>
+	<string>
+
+1513850302 source:e:\cpp\test\src\player.cpp
+	"Player.h"
+	<string>
+
+1513787515 source:e:\cpp\test\src\item.cpp
+	"Item.h"
+	<iostream>
+	<string>
+
+1513787515 e:\cpp\test\include\item.h
+	<iostream>
+	<string>
+
+1513847857 source:e:\cpp\test\src\test.cpp
+	"test.h"
+
+1513847856 e:\cpp\test\include\test.h
+
