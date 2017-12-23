@@ -28,8 +28,9 @@ Item makeIt(Item potion1);
 std::string locations[5] = {"Castle", "Tower", "Tunnel", "Forest", "Old House"};
 
 int main(){
-    std::cout << "Version 2.0" << std::endl; // 23.12.2017
+    std::cout << "Version 2.0.1" << std::endl; // 23.12.2017
     Sleep(1500);
+    system("cls");
     srand(time(NULL));
     std::string name;
     int way;
