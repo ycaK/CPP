@@ -18,8 +18,10 @@ class Player
         void setPlayerLvlDmg(int);
         void setPlayerMaxHp(int);
         void setPlayerMoney(int);
+        void setPlayerLocation(std::string);
 
         std::string getPlayerName();
+        std::string getPlayerLocation();
         int getPlayerLvl();
         int getPlayerExp();
         int getPlayerHp();
@@ -38,6 +40,7 @@ class Player
         int lvlDmg;
         int lvl;
         std::string name;
+        std::string locationName;
         int expToLvlUp;
         int exp;
         int money;

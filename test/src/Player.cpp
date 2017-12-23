@@ -13,6 +13,7 @@ void Player::setPlayerLvlHp(int lvlHp){Player::lvlHp = lvlHp;}
 void Player::setPlayerLvlDmg(int lvlDmg){Player::lvlDmg = lvlDmg;}
 void Player::setPlayerMaxHp(int maxHp){Player::maxHp = maxHp;}
 void Player::setPlayerMoney(int monP){Player::money = monP;}
+void Player::setPlayerLocation(std::string loc){Player::locationName = loc;}
 
 int Player::getDamage(){return Player::dmg;}
 int Player::getPlayerHp(){return Player::hp;}
@@ -24,3 +25,4 @@ int Player::getPlayerLvlDmg(){return Player::lvlDmg;}
 int Player::getPlayerMaxHp(){return Player::maxHp;}
 int Player::getPlayerMoney(){return Player::money;}
 std::string Player::getPlayerName(){return Player::name;}
+std::string Player::getPlayerLocation(){return Player::locationName;}

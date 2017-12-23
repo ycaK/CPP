@@ -13,12 +13,16 @@ class Item
         void setPotionEffect(std::string);
         void setPotionPower(int);
         void setPotionQuantity(int);
+        void setPotionCostToBuy(int);
+        void setPotionCostToUpgrade(int);
 
         std::string getPotionName();
         std::string getPotionType();
         std::string getPotionEffect();
         int getPotionPower();
         int getPotionQuantity();
+        int getPotionCostToBuy();
+        int getPotionCostToUpgrade();
 
     private:
         std::string name;
@@ -26,6 +30,8 @@ class Item
         std::string effect;
         int power;
         int quantity;
+        int costtb;
+        int costtu;
 };
 
 #endif // ITEM_H
