@@ -21,14 +21,14 @@ Player shop(Player account);
 Player moneyCalc(Player account, Mob Karthus);
 Player upgrade(Player account);
 
-Item potion1("Heal Potion", "defense", "heal", 1, 1);
-Item potion2("Damage Potion", "defense", "dmg_boost", 1, 1);
+Item potion1("Temp Heal Potion", "defense", "heal", 1, 1);
+Item potion2("Temp Damage Potion", "defense", "dmg_boost", 1, 1);
 Item makeIt(Item potion1);
 
 std::string locations[5] = {"Castle", "Tower", "Tunnel", "Forest", "Old House"};
 
 int main(){
-    std::cout << "Version 2.0.3" << std::endl; // 23.12.2017
+    std::cout << "Version 2.1" << std::endl; // 23.12.2017
     Sleep(1500);
     system("cls");
     srand(time(NULL));
@@ -47,24 +47,41 @@ int main(){
     system("cls");
     while(true)
     {
-        srand(time(NULL));
-        int loc = (rand() % 5);
-        std::string statLoc = locations[loc];
-        std::cout << "Where do you want to go (left - 0, right - 1, forward - 2): ";
-        std::cin >> way;
-        if(way == "0" || way == "1" || way == "2")
+        if(account.getPlayerHp() > 0)
         {
-            account.setPlayerLocation(locations[loc]);
-            std::cout << std::endl << "You are now in: " << locations[loc] << std::endl;
-            Sleep(2500);
-            system("cls");
-            account = battle(account);
+            srand(time(NULL));
+            int loc = (rand() % 5);
+            std::string statLoc = locations[loc];
+            std::cout << "Where do you want to go (left - 0, right - 1, forward - 2): ";
+            std::cin >> way;
+            if(way == "0" || way == "1" || way == "2")
+            {
+                account.setPlayerLocation(locations[loc]);
+                std::cout << std::endl << "You are now in: " << locations[loc] << std::endl;
+                Sleep(2500);
+                system("cls");
+                account = battle(account);
+            }
+            else
+            {
+                std::cout << "Wrong way!" << std::endl;
+                Sleep(1500);
+                system("cls");
+            }
         }
         else
         {
-            std::cout << "Wrong way!" << std::endl;
-            Sleep(1500);
-            system("cls");
+            std::string optP;
+            std::cout << "You want to restart(r) or exit(e)?: ";
+            std::cin >> optP;
+            if(optP == "r" || optP == "R")
+            {
+                main();
+            }
+            else
+            {
+                exit(0);
+            }
         }
     }
 }
@@ -147,7 +164,7 @@ Player upgrade(Player account)
         {
             if(account.getPlayerMoney() >= potion1.getPotionCostToUpgrade())
             {
-                std::cout << std::endl << "[ Upgrading Max Health Potion's ]" << std::endl;
+                std::cout << std::endl << "[ Upgrading Temp Max Health Potion's ]" << std::endl;
                 potion1.setPotionPower(potion1.getPotionPower() + 1);
                 account.setPlayerMoney(account.getPlayerMoney() - potion1.getPotionCostToUpgrade());
                 std::cout << "[ Max Health Potion's have now power: " << potion1.getPotionPower() << " ]" << std::endl << std::endl;
@@ -157,7 +174,7 @@ Player upgrade(Player account)
             }
             else
             {
-                std::cout << std::endl << "[ Not enough money to upgrade max health potion's! ]" << std::endl << std::endl;
+                std::cout << std::endl << "[ Not enough money to upgrade temp max health potion's! ]" << std::endl << std::endl;
                 system("pause");
                 system("cls");
                 return account;
@@ -169,7 +186,7 @@ Player upgrade(Player account)
             {
                 if(account.getPlayerMoney() >= potion2.getPotionCostToUpgrade())
                 {
-                    std::cout << std::endl << "[ Upgrading Damage Potion's ]" << std::endl;
+                    std::cout << std::endl << "[ Upgrading Temp Damage Potion's ]" << std::endl;
                     potion2.setPotionPower(potion2.getPotionPower() + 1);
                     account.setPlayerMoney(account.getPlayerMoney() - potion2.getPotionCostToUpgrade());
                     std::cout << "[ Damage Potion's have now power: " << potion2.getPotionPower() << " ]" << std::endl << std::endl;
@@ -179,7 +196,7 @@ Player upgrade(Player account)
                 }
                 else
                 {
-                    std::cout << std::endl << "[ Not enough money to upgrade damage potion's! ]" << std::endl << std::endl;
+                    std::cout << std::endl << "[ Not enough money to temp upgrade damage potion's! ]" << std::endl << std::endl;
                     system("pause");
                     system("cls");
                     return account;
@@ -204,8 +221,8 @@ Player shop(Player account)
     std::cout << "[ SHOP ]" << std::endl << std::endl;
     std::cout << "[ Your balance: " << account.getPlayerMoney() << "$ ]" << std::endl << std::endl;
     std::cout << "[ Items for sale: ]" << std::endl;
-    std::cout << "[ [1] 1 x Max Health Potion ]   - [ " << potion1.getPotionCostToBuy() << "$ ]" << std::endl;
-    std::cout << "[ [2] 2 x Damage Potion's ] - [ " << potion2.getPotionCostToBuy() << "$ ]" << std::endl << std::endl;
+    std::cout << "[ [1] 1 x Temp Max Health Potion ]   - [ " << potion1.getPotionCostToBuy() << "$ ]" << std::endl;
+    std::cout << "[ [2] 2 x Temp Damage Potion's ] - [ " << potion2.getPotionCostToBuy() << "$ ]" << std::endl << std::endl;
     std::cout << "[ Enter number to buy item (0 to exit)]: ";
     std::cin >> option;
     if(option == "0")
@@ -219,7 +236,7 @@ Player shop(Player account)
         {
             if(account.getPlayerMoney() >= potion1.getPotionCostToBuy())
             {
-                std::cout << "[ Buying 1 x Max Health Potion ]" << std::endl;
+                std::cout << "[ Buying 1 x Temp Max Health Potion ]" << std::endl;
                 potion1.setPotionQuantity(potion1.getPotionQuantity() + 1);
                 account.setPlayerMoney(account.getPlayerMoney() - potion1.getPotionCostToBuy());
                 system("pause");
@@ -228,7 +245,7 @@ Player shop(Player account)
             }
             else
             {
-                std::cout << std::endl << "[ Not enough money to buy heal potion's! ]" << std::endl << std::endl;
+                std::cout << std::endl << "[ Not enough money to buy temp max health potion's! ]" << std::endl << std::endl;
                 system("pause");
                 system("cls");
                 return account;
@@ -240,7 +257,7 @@ Player shop(Player account)
             {
                 if(account.getPlayerMoney() >= potion2.getPotionCostToBuy())
                 {
-                    std::cout << "[ Buying 2 x Damage Potion's ]" << std::endl;
+                    std::cout << "[ Buying 2 x Temp Damage Potion's ]" << std::endl;
                     potion2.setPotionQuantity(potion2.getPotionQuantity() + 2);
                     account.setPlayerMoney(account.getPlayerMoney() - potion2.getPotionCostToBuy());
                     system("pause");
@@ -249,7 +266,7 @@ Player shop(Player account)
                 }
                 else
                 {
-                    std::cout << std::endl << "[ Not enough money to buy damage potion's! ]" << std::endl << std::endl;
+                    std::cout << std::endl << "[ Not enough money to buy temp damage potion's! ]" << std::endl << std::endl;
                     system("pause");
                     system("cls");
                     return account;
@@ -312,7 +329,7 @@ Player battle(Player accout)
                         std::cout << "Items: " << std::endl;
                         std::cout << " [0] " << potion1.getPotionName() << " x " << potion1.getPotionQuantity() << " | Power: " << potion1.getPotionPower() << std::endl;
                         std::cout << " [1] " << potion2.getPotionName() << " x " << potion2.getPotionQuantity() << " | Power: " << potion2.getPotionPower() << std::endl;
-                        std::cout << std::endl << std::endl << " Select Number: ";
+                        std::cout << std::endl << std::endl << "[ Select Number (x to exit)]: ";
                         std::cin >> selectPot;
                         if(selectPot == "0"){
                             if(potion1.getPotionQuantity() > 0)
@@ -397,6 +414,13 @@ Player battle(Player accout)
                                                 {
                                                     std::cout << "Not enough potions!" << std::endl;
                                                 }
+                                        }
+                                        else
+                                        {
+                                            if(selectPot == "X" || selectPot == "x")
+                                            {
+                                                std::cout << std::endl;
+                                            }
                                         }
                                     }
 
