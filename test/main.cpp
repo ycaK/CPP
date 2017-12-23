@@ -28,12 +28,12 @@ Item makeIt(Item potion1);
 std::string locations[5] = {"Castle", "Tower", "Tunnel", "Forest", "Old House"};
 
 int main(){
-    std::cout << "Version 2.0.1" << std::endl; // 23.12.2017
+    std::cout << "Version 2.0.2" << std::endl; // 23.12.2017
     Sleep(1500);
     system("cls");
     srand(time(NULL));
     std::string name;
-    int way;
+    std::string way;
     int startLoc = (rand() % 5);
     std::cout << "Enter name: ";
     std::cin >> name;
@@ -52,7 +52,7 @@ int main(){
         std::string statLoc = locations[loc];
         std::cout << "Where do you want to go (left - 0, right - 1, forward - 2): ";
         std::cin >> way;
-        if(way == 0 || way == 1 || way == 2)
+        if(way == "0" || way == "1" || way == "2")
         {
             account.setPlayerLocation(locations[loc]);
             std::cout << std::endl << "You are now in: " << locations[loc] << std::endl;
