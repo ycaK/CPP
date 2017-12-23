@@ -28,7 +28,7 @@ Item makeIt(Item potion1);
 std::string locations[5] = {"Castle", "Tower", "Tunnel", "Forest", "Old House"};
 
 int main(){
-    std::cout << "Version 2.0.2" << std::endl; // 23.12.2017
+    std::cout << "Version 2.0.3" << std::endl; // 23.12.2017
     Sleep(1500);
     system("cls");
     srand(time(NULL));
@@ -63,6 +63,8 @@ int main(){
         else
         {
             std::cout << "Wrong way!" << std::endl;
+            Sleep(1500);
+            system("cls");
         }
     }
 }
@@ -124,7 +126,7 @@ Player moneyCalc(Player account, Mob Karthus)
 
 Player upgrade(Player account)
 {
-    int option;
+    std::string option;
     potion1.setPotionCostToUpgrade(250 * potion1.getPotionPower());
     potion2.setPotionCostToUpgrade(275 * potion2.getPotionPower());
     std::cout << "[ UPGRADES ]" << std::endl << std::endl;
@@ -134,14 +136,14 @@ Player upgrade(Player account)
     std::cout << "[2] " << potion2.getPotionName() << " | Power: " << potion2.getPotionPower() << " | Cost: " << potion2.getPotionCostToUpgrade() << "$ " << std::endl << std::endl;
     std::cout << "[ Select item to upgrade (0 to exit)]: ";
     std::cin >> option;
-    if(option == 0)
+    if(option == "0")
     {
         system("cls");
         return account;
     }
     else
     {
-        if(option == 1)
+        if(option == "1")
         {
             if(account.getPlayerMoney() >= potion1.getPotionCostToUpgrade())
             {
@@ -163,7 +165,7 @@ Player upgrade(Player account)
         }
         else
         {
-            if(option == 2)
+            if(option == "2")
             {
                 if(account.getPlayerMoney() >= potion2.getPotionCostToUpgrade())
                 {
@@ -196,7 +198,7 @@ Player upgrade(Player account)
 
 Player shop(Player account)
 {
-    int option;
+    std::string option;
     potion1.setPotionCostToBuy(75);
     potion2.setPotionCostToBuy(115);
     std::cout << "[ SHOP ]" << std::endl << std::endl;
@@ -206,14 +208,14 @@ Player shop(Player account)
     std::cout << "[ [2] 2 x Damage Potion's ] - [ " << potion2.getPotionCostToBuy() << "$ ]" << std::endl << std::endl;
     std::cout << "[ Enter number to buy item (0 to exit)]: ";
     std::cin >> option;
-    if(option == 0)
+    if(option == "0")
     {
         system("cls");
         return account;
     }
     else
     {
-        if(option == 1)
+        if(option == "1")
         {
             if(account.getPlayerMoney() >= potion1.getPotionCostToBuy())
             {
@@ -234,7 +236,7 @@ Player shop(Player account)
         }
         else
         {
-            if(option == 2)
+            if(option == "2")
             {
                 if(account.getPlayerMoney() >= potion2.getPotionCostToBuy())
                 {
