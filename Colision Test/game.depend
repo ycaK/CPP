@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1514121031 source:e:\cpp\game\main.cpp
+	<SFML/Graphics.hpp>
+	"Collision.h"
+
+1514051111 source:e:\cpp\game\collision.cpp
+	<SFML\Graphics.hpp>
+	<map>
+	"Collision.h"
+
+1514051062 e:\cpp\game\collision.h
+
