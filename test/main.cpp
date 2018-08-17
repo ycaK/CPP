@@ -11,7 +11,7 @@
 //#include "stdafx.h"
 
 //TODO: Item makeIt <- Delete input and make better way of adding/changing potions!
-//TODO: Make buffs from lvlups!
+//TODO: Make buffs from lvlups!!
 
 
 Player battle(Player accout);
