@@ -5,9 +5,9 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <Windows.h>
-#include "Player.h"
-#include "Mob.h"
-#include "Item.h" // Testing
+#include "include/Player.h"
+#include "include/Mob.h"
+#include "include/Item.h" // Testing
 //#include "stdafx.h"
 
 //TODO: Item makeIt <- Delete input and make better way of adding/changing potions!
@@ -287,10 +287,29 @@ Player battle(Player accout)
 {
     std::string option;
     srand(time(NULL));
-    int mGroup = (rand() % 2);
+    int mGroup;
     int mClass = (rand() % 3);
     int diff = (rand() % 20);
-    std::string mobs[2][3] = {{"Dragon", "Baby Dragon", "Elder Dragon"}, {"Akali", "Garen", "Wukong"}};
+    std::string mobs[4][3] = {{"Suchar", "Wbudowany Suchar?", "Twardy Suchar"}, {"KT", "Gra¿yna", "BTS"}, {"Naruto", "Szynszyl", "Naruto-Szynszyl?"}, {"Centaur", "Centaurtaur", "Centaurtaurtaur"}};
+    if(accout.getPlayerLocation() == locations[0]){
+        //std::cout << locations[0] << std::endl;
+        mGroup = 0;
+    }else{
+        if(accout.getPlayerLocation() == locations[1]){
+            //std::cout << locations[1] << std::endl;
+            mGroup = 1;
+        }else{
+            if(accout.getPlayerLocation() == locations[2]){
+                //std::cout << locations[2] << std::endl;
+                mGroup = 2;
+            }else{
+                if(accout.getPlayerLocation() == locations[3]){
+                    //std::cout << locations[3] << std::endl;
+                    mGroup = 3;
+                }
+            }
+        }
+    }
     Mob Karthus(mobs[mGroup][mClass], 25 * diff * (accout.getPlayerLvl() + 1), 5 * diff * (accout.getPlayerLvl() +1), diff);
     do
     {
