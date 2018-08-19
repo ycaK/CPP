@@ -512,6 +512,11 @@ Player battle(Player accout)
         std::cout << "   [ Victory ]   " << std::endl << std::endl;
         accout = expCalc(accout, Karthus);
         accout = moneyCalc(accout, Karthus);
-        return accout;
+        if(accout.getPlayerLocation() == locations[0]){
+            cout << "suchar" << endl;
+            return accout;}
+        else {
+
+        return accout;}
     }
 }
