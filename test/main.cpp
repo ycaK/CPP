@@ -290,7 +290,7 @@ Player battle(Player accout)
     int mGroup;
     int mClass = (rand() % 3);
     int diff = (rand() % 20);
-    std::string mobs[4][3] = {{"Suchar", "Cele",}, {"KT", "Grazyna", "BTS"}, {"Naruto", "Szynszyl", "Naruto-Szynszyl", "Alice"}, {"Centaur", "Centaurtaur", "Hekkun"}};
+    std::string mobs[4][3] = {{"Suchar", "Cele",}, {"KT", "Grazyna", "BTS"}, {"Naruto", "Szynszyl", "Alice"}, {"Centaur", "Centaurtaur", "Hekkun"}};
     if(accout.getPlayerLocation() == locations[0]){
         //std::cout << locations[0] << std::endl;
         mGroup = 0;
@@ -510,14 +510,14 @@ Player battle(Player accout)
     {
         system("cls");
         std::cout << "   [ Victory ]   " << std::endl << std::endl;
+        srand(time(NULL));
+        int sucharRNG = (rand() % 12);
+        std::string suchardb[12] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
+        if(accout.getPlayerLocation() == locations[2]){
+            std::cout << suchardb[sucharRNG] << std::endl;
+        }
         accout = expCalc(accout, Karthus);
         accout = moneyCalc(accout, Karthus);
-        if(accout.getPlayerLocation() == locations[0]){
-            std::cout << "suchar" << std::endl;
-            return accout;
-        }
-        else {
-            return accout;
-        }
+        return accout;
     }
 }
