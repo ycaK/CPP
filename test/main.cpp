@@ -25,7 +25,7 @@ Item potion1("Temp Heal Potion", "defense", "heal", 1, 1);
 Item potion2("Temp Damage Potion", "defense", "dmg_boost", 1, 1);
 Item makeIt(Item potion1);
 
-std::string locations[5] = {"Castle", "Tower", "Tunnel", "Forest", "Old House"};
+std::string locations[4] = {"Korea", "Las Alice", "Pustynia Cele", "Szczyt Hekkun"};
 
 int main(){
     std::cout << "Version 2.1" << std::endl; // 23.12.2017
