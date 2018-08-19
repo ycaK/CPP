@@ -34,7 +34,7 @@ int main(){
     srand(time(NULL));
     std::string name;
     std::string way;
-    int startLoc = (rand() % 5);
+    int startLoc = (rand() % 4);
     std::cout << "Enter name: ";
     std::cin >> name;
     Player account(name, 0, 0, 0, 0, 50); // Name | LvL | Exp | Bonus to HP | Bonus to DMG | Money
@@ -50,7 +50,7 @@ int main(){
         if(account.getPlayerHp() > 0)
         {
             srand(time(NULL));
-            int loc = (rand() % 5);
+            int loc = (rand() % 4);
             std::string statLoc = locations[loc];
             std::cout << "Where do you want to go (left - 0, right - 1, forward - 2): ";
             std::cin >> way;
