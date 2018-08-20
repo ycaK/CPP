@@ -473,7 +473,7 @@ Player battle(Player accout)
                                 system("cls");
                             }
                             else
-                            {
+                            {"
                                 if(option == "B" || option == "b")
                                 {
                                     accout = shop(accout);
@@ -512,7 +512,7 @@ Player battle(Player accout)
         std::cout << "   [ Victory ]   " << std::endl << std::endl;
         srand(time(NULL));
         int sucharRNG = (rand() % 12);
-        std::string suchardb[12] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "Kto najbardziej lubi pic cole? Kolarz", "D", "E", "F", "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
+        std::string suchardb[12] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "Kto najbardziej lubi pic cole? Kolarz", "Jakie sa ulubione ryby matematyka? Sumy", "E", "F", "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
         if(accout.getPlayerLocation() == locations[2]){
             std::cout << suchardb[sucharRNG] << std::endl;
         }
