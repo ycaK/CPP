@@ -25,7 +25,7 @@ Item potion1("Temp Heal Potion", "defense", "heal", 1, 1);
 Item potion2("Temp Damage Potion", "defense", "dmg_boost", 1, 1);
 Item makeIt(Item potion1);
 
-std::string locations[4] = {"Korea", "Las", "Pustynia", "Szczyt"};
+std::string locations[4] = {"Pustynia", "Korea", "Las", "Szczyt"};
 
 int main(){
     std::cout << "Version 2.1" << std::endl; // 23.12.2017
@@ -513,7 +513,7 @@ Player battle(Player accout)
         srand(time(NULL));
         int sucharRNG = (rand() % 6);
         std::string suchardb[6] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "Kto najbardziej lubi pic cole? Kolarz", "Jakie sa ulubione ryby matematyka? Sumy", "Jak wabi sie pies złomiarza? Puszek", "Ulubiony baton informatyka? 3 bit"}; // NIE WIÊCEJ NIE MNIEJ
-        if(accout.getPlayerLocation() == locations[2]){
+        if(accout.getPlayerLocation() == locations[0]){
             std::cout << suchardb[sucharRNG] << std::endl << std::endl;
         }
         accout = expCalc(accout, Karthus);
