@@ -512,7 +512,7 @@ Player battle(Player accout)
         std::cout << "   [ Victory ]   " << std::endl << std::endl;
         srand(time(NULL));
         int sucharRNG = (rand() % 12);
-        std::string suchardb[12] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "Kto najbardziej lubi pic cole? Kolarz", "Jakie sa ulubione ryby matematyka? Sumy", "Jak wabi sie pies złomiarza? Puszek", "F", "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
+        std::string suchardb[12] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "Kto najbardziej lubi pic cole? Kolarz", "Jakie sa ulubione ryby matematyka? Sumy", "Jak wabi sie pies złomiarza? Puszek", "Ulubiony baton informatyka? 3 bit, "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
         if(accout.getPlayerLocation() == locations[2]){
             std::cout << suchardb[sucharRNG] << std::endl;
         }
