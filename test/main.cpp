@@ -473,7 +473,7 @@ Player battle(Player accout)
                                 system("cls");
                             }
                             else
-                            {"
+                            {
                                 if(option == "B" || option == "b")
                                 {
                                     accout = shop(accout);
