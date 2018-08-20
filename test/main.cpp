@@ -25,7 +25,7 @@ Item potion1("Temp Heal Potion", "defense", "heal", 1, 1);
 Item potion2("Temp Damage Potion", "defense", "dmg_boost", 1, 1);
 Item makeIt(Item potion1);
 
-std::string locations[4] = {"Korea", "Las Alice", "Pustynia Cele", "Szczyt Hekkun"};
+std::string locations[4] = {"Korea", "Las", "Pustynia", "Szczyt"};
 
 int main(){
     std::cout << "Version 2.1" << std::endl; // 23.12.2017
@@ -290,7 +290,7 @@ Player battle(Player accout)
     int mGroup;
     int mClass = (rand() % 3);
     int diff = (rand() % 20);
-    std::string mobs[4][3] = {{"Suchar", "Cele",}, {"KT", "Grazyna", "BTS"}, {"Naruto", "Szynszyl", "Alice"}, {"Centaur", "Centaurtaur", "Hekkun"}};
+    std::string mobs[4][3] = {{"Suchar", "Suchar", "Cele",}, {"KT", "Grazyna", "BTS"}, {"Naruto", "Szynszyl", "Alice"}, {"Centaur", "Centaurtaur", "Hekkun"}};
     if(accout.getPlayerLocation() == locations[0]){
         //std::cout << locations[0] << std::endl;
         mGroup = 0;
@@ -512,7 +512,7 @@ Player battle(Player accout)
         std::cout << "   [ Victory ]   " << std::endl << std::endl;
         srand(time(NULL));
         int sucharRNG = (rand() % 12);
-        std::string suchardb[12] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
+        std::string suchardb[12] = {"Jak terrorysta rabie drewno? Z zamachem", "Po co ubezpieczyciel przyszedl do lasu? Polisa", "Kto najbardziej lubi pic cole? Kolarz", "D", "E", "F", "G", "H", "I", "J", "K", "L"}; // NIE WIÊCEJ NIE MNIEJ
         if(accout.getPlayerLocation() == locations[2]){
             std::cout << suchardb[sucharRNG] << std::endl;
         }
