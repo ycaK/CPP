@@ -290,7 +290,7 @@ Player battle(Player accout)
     int mGroup;
     int mClass = (rand() % 3);
     int diff = (rand() % 20);
-    std::string mobs[4][3] = {{"Suchar", "Suchar", "Cele",}, {"KT", "Grazyna", "BTS"}, {"Naruto", "Szynszyl", "Alice"}, {"Centaur", "Centaurtaur", "Hekkun"}};
+    std::string mobs[4][3] = {{"Suchar", "Suchar", "Cele"}, {"KT", "Grazyna", "BTS"}, {"Naruto", "Szynszyl", "Alice"}, {"Centaur", "Centaurtaur", "Hekkun"}};
     if(accout.getPlayerLocation() == locations[0]){
         //std::cout << locations[0] << std::endl;
         mGroup = 0;
